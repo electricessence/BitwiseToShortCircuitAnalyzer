@@ -62,8 +62,8 @@ public static class Program
 
 			var diagnostics = await compilation.GetAllDiagnosticsAsync();
 
-			Assert.True(diagnostics.Any(d => d.Id == B2SAnalyzer.OrRuleId));
-			Assert.True(diagnostics.Any(d => d.Id == B2SAnalyzer.AndRuleId));
+			Assert.True(diagnostics.Any(d => d.Id == B2SAnalyzer.BooleanOrRuleId));
+			Assert.True(diagnostics.Any(d => d.Id == B2SAnalyzer.BooleanAndRuleId));
 
 			// We should only get 2 as we only care about boolean comparisons.
 			Assert.Equal(2, diagnostics.Length);
