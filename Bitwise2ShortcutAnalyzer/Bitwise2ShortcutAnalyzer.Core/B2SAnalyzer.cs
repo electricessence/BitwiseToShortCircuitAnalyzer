@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
-using System;
 using System.Collections.Immutable;
 
 namespace Bitwise2ShortcutAnalyzer
@@ -42,34 +41,39 @@ namespace Bitwise2ShortcutAnalyzer
 			context.RegisterSyntaxNodeAction(AynalyzePipe, SyntaxKind.BitwiseOrExpression);
 		}
 
-		private static int BoolCount(SemanticModel model, BinaryExpressionSyntax node)
+		enum Result
 		{
-			var left = model.GetTypeInfo(node.Left).Type.SpecialType;
-			var right = model.GetTypeInfo(node.Right).Type.SpecialType;
-			int count = 0;
-			if (left == SpecialType.System_Boolean) ++count;
-			if (right == SpecialType.System_Boolean) ++count;
-			return count;
+			None,
+			Left,
+			Right,
+			Both
+		}
+
+		private static Result GetBoolResult(SemanticModel model, BinaryExpressionSyntax node)
+		{
+			var left = model.GetTypeInfo(node.Left).Type.SpecialType == SpecialType.System_Boolean;
+			var right = model.GetTypeInfo(node.Right).Type.SpecialType == SpecialType.System_Boolean;
+			return left
+				? right ? Result.Both : Result.Left
+				: right ? Result.Right : Result.None;
 		}
 
 		private void AynalyzeAmpersand(SyntaxNodeAnalysisContext context)
 		{
 			var node = (BinaryExpressionSyntax)context.Node;
-			if (BoolCount(context.SemanticModel, node) == 0) return;
+			if (GetBoolResult(context.SemanticModel, node) == Result.None) return;
 
 			context.ReportDiagnostic(
-				Diagnostic.Create(AndRule,
-				node.GetLocation()));
+				Diagnostic.Create(AndRule, node.GetLocation()));
 		}
 
 		private void AynalyzePipe(SyntaxNodeAnalysisContext context)
 		{
 			var node = (BinaryExpressionSyntax)context.Node;
-			if (BoolCount(context.SemanticModel, node) == 0) return;
+			if (GetBoolResult(context.SemanticModel, node) == Result.None) return;
 
 			context.ReportDiagnostic(
-				Diagnostic.Create(OrRule,
-				node.GetLocation()));
+				Diagnostic.Create(OrRule, node.GetLocation()));
 		}
 	}
 }
