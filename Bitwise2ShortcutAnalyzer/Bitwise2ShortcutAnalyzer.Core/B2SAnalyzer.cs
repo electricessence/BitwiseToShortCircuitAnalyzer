@@ -32,24 +32,6 @@ namespace Bitwise2ShortcutAnalyzer
 				DiagnosticSeverity.Warning,
 				isEnabledByDefault: true);
 
-		private static readonly DiagnosticDescriptor MixedAndRule
-			= new DiagnosticDescriptor(
-				MixedAndRuleId,
-				"Mixing booleans and integers with bitwise (&)",
-				"This bitwise (&) combining a boolean and an integer and can potentially produce unexpected results or negatively affect performance",
-				"Bitwise",
-				DiagnosticSeverity.Warning,
-				isEnabledByDefault: true);
-
-		private static readonly DiagnosticDescriptor MixedOrRule
-			= new DiagnosticDescriptor(
-				MixedOrRuleId,
-				"Mixing booleans and integers with bitwise (|)",
-				"This bitwise (|) combining a boolean and an integer and can potentially produce unexpected results or negatively affect performance",
-				"Bitwise",
-				DiagnosticSeverity.Warning,
-				isEnabledByDefault: true);
-
 		public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
 			=> ImmutableArray.Create(BooleanAndRule, BooleanOrRule);
 
@@ -86,7 +68,7 @@ namespace Bitwise2ShortcutAnalyzer
 
 			context.ReportDiagnostic(
 				Diagnostic.Create(
-					result == Result.Both ? BooleanAndRule : MixedAndRule,
+					BooleanAndRule,
 					node.GetLocation()));
 		}
 
@@ -98,7 +80,7 @@ namespace Bitwise2ShortcutAnalyzer
 
 			context.ReportDiagnostic(
 				Diagnostic.Create(
-					result == Result.Both ? BooleanOrRule : MixedOrRule,
+					BooleanOrRule,
 					node.GetLocation()));
 		}
 	}
