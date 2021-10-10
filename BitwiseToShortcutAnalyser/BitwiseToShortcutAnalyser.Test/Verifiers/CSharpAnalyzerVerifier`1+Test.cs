@@ -1,9 +1,9 @@
-﻿using BitwiseToShortcutAnalyser.Test.Verifiers;
+﻿using BitwiseToShortcutAnalyzer.Test.Verifiers;
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
 
-namespace BitwiseToShortcutAnalyser.Test
+namespace BitwiseToShortcutAnalyzer.Test
 {
 	public static partial class CSharpAnalyzerVerifier<TAnalyzer>
 		where TAnalyzer : DiagnosticAnalyzer, new()

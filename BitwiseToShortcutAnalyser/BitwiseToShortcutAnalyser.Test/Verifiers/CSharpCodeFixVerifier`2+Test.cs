@@ -1,10 +1,10 @@
-﻿using BitwiseToShortcutAnalyser.Test.Verifiers;
+﻿using BitwiseToShortcutAnalyzer.Test.Verifiers;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
 
-namespace BitwiseToShortcutAnalyser.Test
+namespace BitwiseToShortcutAnalyzer.Test
 {
 	public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
 		where TAnalyzer : DiagnosticAnalyzer, new()

@@ -8,10 +8,10 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 
-namespace BitwiseToShortcutAnalyser
+namespace BitwiseToShortcutAnalyzer
 {
 	[DiagnosticAnalyzer(LanguageNames.CSharp)]
-	public class B2SAnalyser : DiagnosticAnalyzer
+	public class B2SAnalyzer : DiagnosticAnalyzer
 	{
 		public const string BooleanAndRuleId = "BitwiseAndPotentiallyInneffecient";
 		public const string BooleanOrRuleId = "BitwiseOrPotentiallyInneffecient";

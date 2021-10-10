@@ -13,13 +13,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BitwiseToShortcutAnalyser
+namespace BitwiseToShortcutAnalyzer
 {
 	[ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(B2SCodeFixProvider)), Shared]
 	public class B2SCodeFixProvider : CodeFixProvider
 	{
 		public sealed override ImmutableArray<string> FixableDiagnosticIds
-			=> ImmutableArray.Create(B2SAnalyser.BooleanAndRuleId, B2SAnalyser.BooleanOrRuleId);
+			=> ImmutableArray.Create(B2SAnalyzer.BooleanAndRuleId, B2SAnalyzer.BooleanOrRuleId);
 
 		public sealed override FixAllProvider GetFixAllProvider() =>
 			// See https://github.com/dotnet/roslyn/blob/main/docs/analyzers/FixAllProvider.md for more information on Fix All Providers

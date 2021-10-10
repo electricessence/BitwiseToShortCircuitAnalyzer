@@ -1,13 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
-using VerifyCS = BitwiseToShortcutAnalyser.Test.CSharpCodeFixVerifier<
-	BitwiseToShortcutAnalyser.B2SAnalyser,
-	BitwiseToShortcutAnalyser.B2SCodeFixProvider>;
+using VerifyCS = BitwiseToShortcutAnalyzer.Test.CSharpCodeFixVerifier<
+	BitwiseToShortcutAnalyzer.B2SAnalyzer,
+	BitwiseToShortcutAnalyzer.B2SCodeFixProvider>;
 
-namespace BitwiseToShortcutAnalyser.Test
+namespace BitwiseToShortcutAnalyzer.Test
 {
 	[TestClass]
-	public class BitwiseToShortcutAnalyserUnitTest
+	public class BitwiseToShortcutAnalyzerUnitTest
 	{
 		//No diagnostics expected to show up
 		[TestMethod]
@@ -53,7 +53,7 @@ namespace BitwiseToShortcutAnalyser.Test
     }";
 
 			var expected = VerifyCS
-                .Diagnostic("BitwiseToShortcutAnalyser")
+                .Diagnostic("BitwiseToShortcutAnalyzer")
                 .WithLocation(0)
                 .WithArguments("TypeName");
 			await VerifyCS.VerifyCodeFixAsync(test, expected, fixtest);
