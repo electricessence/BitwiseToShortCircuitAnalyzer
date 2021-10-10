@@ -9,22 +9,24 @@
 
   <PropertyGroup>
     <PackageId>BitwiseToShortcutAnalyser</PackageId>
-    <PackageVersion>1.0.0.0</PackageVersion>
-    <Authors>essence</Authors>
-    <PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
-    <PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
-    <RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>A Roslyn analyzer for finding and fixing instances of bitwise operators that should be using shortcut operators instead.</Description>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <Copyright>Copyright</Copyright>
-    <PackageTags>BitwiseToShortcutAnalyser, analyzers</PackageTags>
-    <DevelopmentDependency>true</DevelopmentDependency>
+		<Version>1.0.0</Version>
+		<Authors>electricessence</Authors>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+		<PackageProjectUrl>https://github.com/electricessence/BitwiseToShortcutAnalyzer/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/electricessence/BitwiseToShortcutAnalyzer/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Description>A Roslyn analyzer for finding and fixing instances of bitwise operators that should be using shortcut operators instead.</Description>
+		<Copyright>© electricessence (Oren F.) All rights reserved.</Copyright>
+		<PackageTags>BitwiseToShortcutAnalyser, analyzers, bitwise, shortcut, ampersand, bar, pipe, operator</PackageTags>
+		<DevelopmentDependency>true</DevelopmentDependency>
     <NoPackageAnalysis>true</NoPackageAnalysis>
 
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
-
+	
   <ItemGroup>
     <ProjectReference Include="..\BitwiseToShortcutAnalyser.CodeFixes\BitwiseToShortcutAnalyser.CodeFixes.csproj" />
     <ProjectReference Include="..\BitwiseToShortcutAnalyser\BitwiseToShortcutAnalyser.csproj" />
