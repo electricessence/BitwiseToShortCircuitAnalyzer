@@ -27,18 +27,12 @@ namespace BitwiseToShortcutAnalyser
 
 		public override async Task RegisterCodeFixesAsync(CodeFixContext context)
 		{
+			var document = context.Document;
+			var root = await document.GetSyntaxRootAsync();
 			foreach (var diagnostic in context.Diagnostics)
 			{
-				var document = context.Document;
-
-				var root = await document.GetSyntaxRootAsync();
-
 				var node = root.FindNode(diagnostic.Location.SourceSpan);
-
-				if (!(node is BinaryExpressionSyntax bitwise))
-					throw new Exception("Expected node to be of type InvocationExpressionSyntax");
-
-				context.RegisterCodeFix(
+				if (node is BinaryExpressionSyntax bitwise)	context.RegisterCodeFix(
 					CodeAction.Create(CodeFixResources.CodeFixTitle, async c =>
 					{
 						await Task.Yield();
