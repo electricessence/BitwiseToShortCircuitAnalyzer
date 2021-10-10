@@ -2,43 +2,44 @@
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
+using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
+using System.Threading;
 
-namespace Bitwise2ShortcutAnalyzer
+namespace BitwiseToShortcutAnalyser
 {
 	[DiagnosticAnalyzer(LanguageNames.CSharp)]
-	public class B2SAnalyzer : DiagnosticAnalyzer
+	public class B2SAnalyser : DiagnosticAnalyzer
 	{
 		public const string BooleanAndRuleId = "BitwiseAndPotentiallyInneffecient";
 		public const string BooleanOrRuleId = "BitwiseOrPotentiallyInneffecient";
-		public const string MixedAndRuleId = "MixedBooleanIntBitwiseAnd";
-		public const string MixedOrRuleId = "MixedBooleanIntBitwiseOr";
+
+		private static readonly LocalizableString BooleanAndTitle
+			= new LocalizableResourceString(nameof(Resources.BooleanAndTitle), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString BooleanAndDescription
+			= new LocalizableResourceString(nameof(Resources.BooleanAndDescription), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString BooleanOrTitle
+			= new LocalizableResourceString(nameof(Resources.BooleanAndTitle), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString BooleanOrDescription
+			= new LocalizableResourceString(nameof(Resources.BooleanAndDescription), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString MessageFormat
+			= new LocalizableResourceString(nameof(Resources.MessageFormat), Resources.ResourceManager, typeof(Resources));
+		private const string Category = "Bitwise";
 
 		private static readonly DiagnosticDescriptor BooleanAndRule
-			= new DiagnosticDescriptor(
-				BooleanAndRuleId,
-				"Potentially inneficient use of bitwise (&)",
-				"This bitwise (&) is potentially causing unnecessary subsequent evaluation",
-				"Bitwise",
-				DiagnosticSeverity.Warning,
-				isEnabledByDefault: true);
-
+			= new DiagnosticDescriptor(BooleanAndRuleId, BooleanAndTitle, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: BooleanAndDescription);
 		private static readonly DiagnosticDescriptor BooleanOrRule
-			= new DiagnosticDescriptor(
-				BooleanOrRuleId,
-				"Potentially inneficient use of bitwise (|)",
-				"This bitwise (|) is potentially causing unnecessary subsequent evaluation",
-				"Bitwise",
-				DiagnosticSeverity.Warning,
-				isEnabledByDefault: true);
+			= new DiagnosticDescriptor(BooleanOrRuleId, BooleanOrTitle, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: BooleanOrDescription);
 
 		public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
 			=> ImmutableArray.Create(BooleanAndRule, BooleanOrRule);
 
 		public override void Initialize(AnalysisContext context)
 		{
+			context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
 			context.EnableConcurrentExecution();
-			context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.Analyze | GeneratedCodeAnalysisFlags.ReportDiagnostics);
 			context.RegisterSyntaxNodeAction(AynalyzeAmpersand, SyntaxKind.BitwiseAndExpression);
 			context.RegisterSyntaxNodeAction(AynalyzePipe, SyntaxKind.BitwiseOrExpression);
 		}
