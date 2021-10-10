@@ -9,7 +9,7 @@
 
   <PropertyGroup>
     <PackageId>BitwiseToShortcutAnalyzer</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.0</Version>
 		<Authors>electricessence</Authors>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
 		<PackageProjectUrl>https://github.com/electricessence/BitwiseToShortcutAnalyzer/</PackageProjectUrl>
