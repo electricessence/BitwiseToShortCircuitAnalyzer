@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using System;
 using System.Collections.Immutable;
 
-namespace BitwiseToShortcutAnalyzer.Test.Verifiers
+namespace BitwiseToShortCircuitAnalyzer.Test.Verifiers
 {
 	internal static class CSharpVerifierHelper
 	{

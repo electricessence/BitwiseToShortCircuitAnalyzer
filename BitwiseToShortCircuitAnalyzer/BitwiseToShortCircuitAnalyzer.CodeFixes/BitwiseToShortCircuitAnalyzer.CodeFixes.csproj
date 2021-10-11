@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IsPackable>false</IsPackable>
-    <RootNamespace>BitwiseToShortcutAnalyzer</RootNamespace>
+    <RootNamespace>BitwiseToShortCircuitAnalyzer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BitwiseToShortcutAnalyzer\BitwiseToShortcutAnalyzer.csproj" />
+    <ProjectReference Include="..\BitwiseToShortCircuitAnalyzer\BitwiseToShortCircuitAnalyzer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

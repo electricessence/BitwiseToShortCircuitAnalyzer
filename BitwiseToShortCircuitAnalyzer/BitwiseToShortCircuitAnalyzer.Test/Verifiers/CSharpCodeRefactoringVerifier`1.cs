@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.Testing;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BitwiseToShortcutAnalyzer.Test
+namespace BitwiseToShortCircuitAnalyzer.Test
 {
 	public static partial class CSharpCodeRefactoringVerifier<TCodeRefactoring>
 		where TCodeRefactoring : CodeRefactoringProvider, new()

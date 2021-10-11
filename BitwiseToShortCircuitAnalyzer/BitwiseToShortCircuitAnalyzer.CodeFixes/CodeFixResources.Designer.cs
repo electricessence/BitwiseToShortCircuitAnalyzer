@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BitwiseToShortcutAnalyzer {
+namespace BitwiseToShortCircuitAnalyzer {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace BitwiseToShortcutAnalyzer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class CodeFixResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal CodeFixResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BitwiseToShortcutAnalyzer {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BitwiseToShortcutAnalyzer.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BitwiseToShortCircuitAnalyzer.CodeFixResources", typeof(CodeFixResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,11 @@ namespace BitwiseToShortcutAnalyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This bitwise (&amp;) is potentially causing unnecessary subsequent evaluation.
+        ///   Looks up a localized string similar to Replace bitwise with short-circuit.
         /// </summary>
-        internal static string BooleanAndDescription {
+        internal static string CodeFixTitle {
             get {
-                return ResourceManager.GetString("BooleanAndDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Potentially inneficient use of bitwise (&amp;).
-        /// </summary>
-        internal static string BooleanAndTitle {
-            get {
-                return ResourceManager.GetString("BooleanAndTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This bitwise (|) is potentially causing unnecessary subsequent evaluation.
-        /// </summary>
-        internal static string BooleanOrDescription {
-            get {
-                return ResourceManager.GetString("BooleanOrDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Potentially inneficient use of bitwise (|).
-        /// </summary>
-        internal static string BooleanOrTitle {
-            get {
-                return ResourceManager.GetString("BooleanOrTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This bitwise operator is potentially causing unnecessary subsequent evaluation.
-        /// </summary>
-        internal static string MessageFormat {
-            get {
-                return ResourceManager.GetString("MessageFormat", resourceCulture);
+                return ResourceManager.GetString("CodeFixTitle", resourceCulture);
             }
         }
     }

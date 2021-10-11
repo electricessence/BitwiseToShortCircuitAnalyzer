@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BitwiseToShortcutAnalyzer.CodeFixes\BitwiseToShortcutAnalyzer.CodeFixes.csproj" />
-    <ProjectReference Include="..\BitwiseToShortcutAnalyzer\BitwiseToShortcutAnalyzer.csproj" />
+    <ProjectReference Include="..\BitwiseToShortCircuitAnalyzer.CodeFixes\BitwiseToShortCircuitAnalyzer.CodeFixes.csproj" />
+    <ProjectReference Include="..\BitwiseToShortCircuitAnalyzer\BitwiseToShortCircuitAnalyzer.csproj" />
   </ItemGroup>
 
 </Project>

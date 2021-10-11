@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Testing.Verifiers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BitwiseToShortcutAnalyzer.Test
+namespace BitwiseToShortCircuitAnalyzer.Test
 {
 	public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
 		where TAnalyzer : DiagnosticAnalyzer, new()

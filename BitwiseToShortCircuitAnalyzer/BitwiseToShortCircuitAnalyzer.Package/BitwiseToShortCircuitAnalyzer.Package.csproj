@@ -8,19 +8,19 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>BitwiseToShortcutAnalyzer</PackageId>
+    <PackageId>BitwiseToShortCircuitAnalyzer</PackageId>
 		<Version>1.0.0</Version>
 		<Authors>electricessence</Authors>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
-		<PackageProjectUrl>https://github.com/electricessence/BitwiseToShortcutAnalyzer/</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/electricessence/BitwiseToShortcutAnalyzer/</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/electricessence/BitwiseToShortCircuitAnalyzer/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/electricessence/BitwiseToShortCircuitAnalyzer/</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes></PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<Description>A Roslyn analyzer for finding and fixing instances of bitwise operators that should be using shortcut operators instead.</Description>
+		<Description>A Roslyn analyzer for finding and fixing instances of bitwise operators that should be using short-circuit operators instead.</Description>
 		<Copyright>© electricessence (Oren F.) All rights reserved.</Copyright>
-		<PackageTags>BitwiseToShortcutAnalyzer, analyzers, bitwise, shortcut, ampersand, bar, pipe, operator</PackageTags>
+		<PackageTags>BitwiseToShortCircuitAnalyzer, analyzers, bitwise, short-circuit, ampersand, bar, pipe, operator</PackageTags>
 		<DevelopmentDependency>true</DevelopmentDependency>
     <NoPackageAnalysis>true</NoPackageAnalysis>
 
@@ -28,8 +28,8 @@
   </PropertyGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\BitwiseToShortcutAnalyzer.CodeFixes\BitwiseToShortcutAnalyzer.CodeFixes.csproj" />
-    <ProjectReference Include="..\BitwiseToShortcutAnalyzer\BitwiseToShortcutAnalyzer.csproj" />
+    <ProjectReference Include="..\BitwiseToShortCircuitAnalyzer.CodeFixes\BitwiseToShortCircuitAnalyzer.CodeFixes.csproj" />
+    <ProjectReference Include="..\BitwiseToShortCircuitAnalyzer\BitwiseToShortCircuitAnalyzer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,8 +38,8 @@
 
   <Target Name="_AddAnalyzersToOutput">
     <ItemGroup>
-      <TfmSpecificPackageFile Include="$(OutputPath)\BitwiseToShortcutAnalyzer.dll" PackagePath="analyzers/dotnet/cs" />
-      <TfmSpecificPackageFile Include="$(OutputPath)\BitwiseToShortcutAnalyzer.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\BitwiseToShortCircuitAnalyzer.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\BitwiseToShortCircuitAnalyzer.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
     </ItemGroup>
   </Target>
 

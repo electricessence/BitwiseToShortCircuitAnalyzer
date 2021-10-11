@@ -8,7 +8,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 
-namespace BitwiseToShortcutAnalyzer
+namespace BitwiseToShortCircuitAnalyzer
 {
 	[DiagnosticAnalyzer(LanguageNames.CSharp)]
 	public class B2SAnalyzer : DiagnosticAnalyzer

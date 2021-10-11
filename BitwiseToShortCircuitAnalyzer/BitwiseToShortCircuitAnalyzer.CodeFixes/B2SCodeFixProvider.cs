@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BitwiseToShortcutAnalyzer
+namespace BitwiseToShortCircuitAnalyzer
 {
 	[ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(B2SCodeFixProvider)), Shared]
 	public class B2SCodeFixProvider : CodeFixProvider
