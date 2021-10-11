@@ -2,6 +2,8 @@
 
 A Roslyn analyzer for finding and fixing instances of bitwise operators that should be using short-circuit operators instead.
 
+[![NuGet](https://img.shields.io/nuget/v/BitwiseToShortCircuitAnalyzer.svg?style=flat)](https://www.nuget.org/packages/BitwiseToShortCircuitAnalyzer/)
+
 ## Examples
 
 ### Bitwise And (&)
