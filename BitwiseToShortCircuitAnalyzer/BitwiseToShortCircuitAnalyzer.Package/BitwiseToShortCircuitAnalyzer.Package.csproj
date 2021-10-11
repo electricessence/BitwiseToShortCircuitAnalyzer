@@ -9,7 +9,7 @@
 
   <PropertyGroup>
     <PackageId>BitwiseToShortCircuitAnalyzer</PackageId>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Authors>electricessence</Authors>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
 		<PackageProjectUrl>https://github.com/electricessence/BitwiseToShortCircuitAnalyzer/</PackageProjectUrl>
@@ -23,6 +23,7 @@
 		<PackageTags>BitwiseToShortCircuitAnalyzer, analyzers, bitwise, short-circuit, ampersand, bar, pipe, operator</PackageTags>
 		<DevelopmentDependency>true</DevelopmentDependency>
     <NoPackageAnalysis>true</NoPackageAnalysis>
+		<PackageIcon>logo.png</PackageIcon>
 
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
@@ -31,6 +32,13 @@
     <ProjectReference Include="..\BitwiseToShortCircuitAnalyzer.CodeFixes\BitwiseToShortCircuitAnalyzer.CodeFixes.csproj" />
     <ProjectReference Include="..\BitwiseToShortCircuitAnalyzer\BitwiseToShortCircuitAnalyzer.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<None Include="logo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
   <ItemGroup>
     <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
