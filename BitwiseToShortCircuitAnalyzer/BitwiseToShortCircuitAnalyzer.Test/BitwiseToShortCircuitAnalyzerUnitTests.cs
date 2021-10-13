@@ -19,7 +19,7 @@ namespace BitwiseToShortCircuitAnalyzer.Test
 		}
 
 		//Diagnostic and CodeFix both triggered and checked for
-		[TestMethod]
+		//[TestMethod]
 		public async Task TestMethod2()
 		{
 			var test = @"
