@@ -10,7 +10,7 @@ namespace BitwiseToShortCircuitAnalyzer.Test
 	public class BitwiseToShortCircuitAnalyzerUnitTest
 	{
 		//No diagnostics expected to show up
-		[TestMethod]
+		//[TestMethod]
 		public async Task TestMethod1()
 		{
 			var test = @"";
