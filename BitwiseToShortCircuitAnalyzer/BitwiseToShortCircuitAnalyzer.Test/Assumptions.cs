@@ -79,5 +79,27 @@ namespace BitwiseToShortCircuitAnalyzer.Test
 			}
 		}
 
+		[TestMethod]
+		public void Comparison7()
+		{
+			foreach (var c in _combinations)
+			{
+				var a = c[0] || c[1] | c[2] || c[3] | c[4] || c[5];
+				var b = c[0] | c[1] || c[2] | c[3] || c[4] | c[5];
+				Assert.AreEqual(a, b);
+			}
+		}
+
+		[TestMethod]
+		public void Comparison8()
+		{
+			foreach (var c in _combinations)
+			{
+				var a = c[0] && c[1] & c[2] && c[3] & c[4] && c[5];
+				var b = c[0] & c[1] && c[2] & c[3] && c[4] & c[5];
+				Assert.AreEqual(a, b);
+			}
+		}
+
 	}
 }
