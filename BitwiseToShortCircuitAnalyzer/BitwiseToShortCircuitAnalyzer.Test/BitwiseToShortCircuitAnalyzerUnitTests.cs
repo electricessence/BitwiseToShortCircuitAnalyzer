@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Testing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using VerifyCS = BitwiseToShortCircuitAnalyzer.Test.CSharpCodeFixVerifier<
 	BitwiseToShortCircuitAnalyzer.B2SAnalyzer,
@@ -7,19 +9,29 @@ using VerifyCS = BitwiseToShortCircuitAnalyzer.Test.CSharpCodeFixVerifier<
 namespace BitwiseToShortCircuitAnalyzer.Test
 {
 	[TestClass]
-	public class BitwiseToShortCircuitAnalyzerUnitTest
-	{
+	public class BitwiseAndPotentiallyInneffecientUnitTest
+    {
 		//No diagnostics expected to show up
-		//[TestMethod]
+		[TestMethod]
 		public async Task TestMethod1()
 		{
-			var test = @"";
+            var test = @"
+class TypeName
+{
+    public bool Test(bool a, bool b)
+    {
+        return a & b;
+    }
+}";
+            var expected = new DiagnosticResult(
+                B2SAnalyzer.BooleanAndRuleId,
+                DiagnosticSeverity.Warning);
 
-			await VerifyCS.VerifyAnalyzerAsync(test);
+            await VerifyCS.VerifyAnalyzerAsync(test, expected);
 		}
 
 		//Diagnostic and CodeFix both triggered and checked for
-		//[TestMethod]
+		[TestMethod]
 		public async Task TestMethod2()
 		{
 			var test = @"
@@ -33,7 +45,16 @@ namespace BitwiseToShortCircuitAnalyzer.Test
     namespace ConsoleApplication1
     {
         class {|#0:TypeName|}
-        {   
+        {
+            public bool And(bool a, bool b)
+            {
+                return a & b;
+            }
+
+            public int And(int a, int b)
+            {
+                return a & b;
+            }
         }
     }";
 
@@ -48,12 +69,21 @@ namespace BitwiseToShortCircuitAnalyzer.Test
     namespace ConsoleApplication1
     {
         class TYPENAME
-        {   
+        {  
+            public bool And(bool a, bool b)
+            {
+                return a && b;
+            }
+
+            public int And(int a, int b)
+            {
+                return a & b;
+            }
         }
     }";
 
 			var expected = VerifyCS
-                .Diagnostic("BitwiseToShortCircuitAnalyzer")
+                .Diagnostic("BitwiseAndPotentiallyInneffecient")
                 .WithLocation(0)
                 .WithArguments("TypeName");
 			await VerifyCS.VerifyCodeFixAsync(test, expected, fixtest);
